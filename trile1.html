@@ -1,0 +1,78 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traffic Light</title>
+  <style>
+    #light {
+      display: flex;
+      flex-direction: column;
+      width: 100px;
+      margin: 50px auto;
+      padding: 10px;
+      background-color: black;
+      border-radius: 10px;
+    }
+    .circle {
+      width: 80px;
+      height: 80px;
+      margin: 10px auto;
+      border-radius: 50%;
+      background-color: grey;
+    }
+    .red { background-color: red; }
+    .yellow { background-color: yellow; }
+    .green { background-color: green; }
+  </style>
+</head>
+<body>
+  <div id="light">
+    <div id="red" class="circle"></div>
+    <div id="yellow" class="circle"></div>
+    <div id="green" class="circle"></div>
+  </div>
+
+  <script>
+    let current = 0;
+    const lights = ['red', 'yellow', 'green'];
+    
+    function changeLight() {
+      // Reset all lights
+      lights.forEach(color => document.getElementById(color).style.backgroundColor = 'grey');
+      
+      document.getElementById(lights[current]).style.backgroundColor = lights[current];
+      
+      // Move to the next light
+      current = (current + 1) % lights.length;
+    }
+
+    setInterval(changeLight, 2000);
+    changeLight();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

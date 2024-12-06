@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #light {
+          display: flex;
+          flex-direction: column;
+          width: 100px;
+          margin: 50px auto;
+          padding: 10px;
+          background-color: black;
+          border-radius: 10px;
+        }
+        .circle {
+          width: 80px;
+          height: 80px;
+          margin: 10px auto;
+          border-radius: 50%;
+          background-color: grey;
+        }
+        .red { background-color: red; }
+        .yellow { background-color: yellow; }
+        .green { background-color: green; }
+      </style>
+</head>
+<body>
+    <div id="light">
+        <div id="red" class="circle"></div>
+        <div id="yellow" class="circle"></div>
+        <div id="green" class="circle"></div>
+
+    </div>
+    <script>
+
+        let current="red"
+
+        function change(color) {
+            const light=['red', 'yellow', 'green']
+            light.forEach(color=>{
+                document.getElementById(color).classList.remove(color)
+                
+            });
+            document.getElementById(current).classList.add(current)
+            if(current==="red"){
+                current="yellow"
+            }else if(current==="yellow"){
+                current="green"
+            }else{
+                current="red"
+            }
+         
+            
+        }
+        setInterval(change,2000)
+        change()
+            
+
+
+    </script>
+    
+    
+</body>
+</html>
